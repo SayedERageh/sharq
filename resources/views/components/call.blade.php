@@ -6,85 +6,84 @@
         <div class="cta-box" data-aos="zoom-out">
 
             <div class="row align-items-center g-4">
-{{-- المحتوى --}}
 
-<div class="col-lg-8">
+                {{-- المحتوى --}}
+                <div class="col-lg-8">
 
-```
-<div class="cta-content">
+                    <div class="cta-content">
 
-    <span class="cta-label">
-        {{ $settings->site_name ?? 'شرق استور' }}
-    </span>
+                        <span class="cta-label">
+                            {{ $settings->site_name ?? 'شرق استور' }}
+                        </span>
 
-    <h2>
-        كل ما تحتاجه لموبايلك من إكسسوارات ومستلزمات في مكان واحد
-    </h2>
+                        <h2>
+                            كل ما تحتاجه لموبايلك من إكسسوارات ومستلزمات في مكان واحد
+                        </h2>
 
-    <p>
-        {{ $settings->site_description ?? 'نوفر لكم أفضل إكسسوارات ومستلزمات الموبايلات من شواحن وكابلات وسماعات وحافظات وغيرها، بجودة ممتازة وأسعار مناسبة.' }}
-    </p>
+                        <p>
+                            {{ $settings->site_description ?? 'نوفر لكم أفضل إكسسوارات ومستلزمات الموبايلات من شواحن وكابلات وسماعات وحافظات وغيرها، بجودة ممتازة وأسعار مناسبة.' }}
+                        </p>
 
-    {{-- الأزرار --}}
-    <div class="cta-buttons">
+                        {{-- الأزرار --}}
+                        <div class="cta-buttons">
 
-        {{-- واتساب --}}
-        @if(!empty($settings?->whatsapp))
+                            {{-- واتساب --}}
+                            @if(!empty($settings?->whatsapp))
 
-            @php
-                $whatsapp = preg_replace(
-                    '/[^0-9]/',
-                    '',
-                    $settings->whatsapp
-                );
+                                @php
+                                    $whatsapp = preg_replace(
+                                        '/[^0-9]/',
+                                        '',
+                                        $settings->whatsapp
+                                    );
 
-                if (str_starts_with($whatsapp, '01')) {
-                    $whatsapp = '20' . substr($whatsapp, 1);
-                }
-            @endphp
+                                    if (str_starts_with($whatsapp, '01')) {
+                                        $whatsapp = '20' . substr($whatsapp, 1);
+                                    }
+                                @endphp
 
-            <a
-                href="https://wa.me/{{ $whatsapp }}"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="cta-whatsapp"
-            >
-                <i class="bi bi-whatsapp"></i>
-                تواصل عبر واتساب
-            </a>
+                                <a
+                                    href="https://wa.me/{{ $whatsapp }}"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="cta-whatsapp"
+                                >
+                                    <i class="bi bi-whatsapp"></i>
+                                    تواصل عبر واتساب
+                                </a>
 
-        @endif
+                            @endif
 
-        {{-- اتصال --}}
-        @if(!empty($settings?->phone))
+                            {{-- اتصال --}}
+                            @if(!empty($settings?->phone))
 
-            <a
-                href="tel:{{ preg_replace('/[^0-9+]/', '', $settings->phone) }}"
-                class="cta-phone"
-            >
-                <i class="bi bi-telephone-fill"></i>
-                اتصل بنا
-            </a>
+                                <a
+                                    href="tel:{{ preg_replace('/[^0-9+]/', '', $settings->phone) }}"
+                                    class="cta-phone"
+                                >
+                                    <i class="bi bi-telephone-fill"></i>
+                                    اتصل بنا
+                                </a>
 
-        @endif
+                            @endif
 
-    </div>
+                        </div>
 
-</div>
-```
+                    </div>
 
-</div>
+                </div>
 
 
-                {{-- الصورة --}}
+                {{-- الأيقونة --}}
                 <div class="col-lg-4">
 
-                    <div class="cta-image">
+                    <div class="cta-icon-box">
 
-                        <img
-                            src="{{ asset('assets/img/aqar.jpg') }}"
-                            alt="{{ $settings->site_name ?? 'أوتاد مصر' }}"
-                        >
+                        <div class="cta-icon-circle">
+                            <i class="bi bi-phone"></i>
+                        </div>
+
+                        <span>إكسسوارات الموبايلات</span>
 
                     </div>
 
@@ -106,24 +105,19 @@
 ===================================================== */
 
 .call-to-action {
-
     padding: 70px 0;
-
     background: #f7f9fc;
-
 }
 
 
-/* الصندوق */
+/* =====================================================
+   BOX
+===================================================== */
 
 .cta-box {
-
     position: relative;
-
     overflow: hidden;
-
     padding: 45px;
-
     border-radius: 24px;
 
     background: linear-gradient(
@@ -136,28 +130,22 @@
 
     box-shadow:
         0 15px 50px rgba(0, 0, 0, .08);
-
 }
 
 
-/* خط ديكوري */
+/* الخط الديكوري */
 
 .cta-box::before {
-
     content: "";
-
     position: absolute;
 
     top: 0;
-
     right: 0;
 
     width: 7px;
-
     height: 100%;
 
     background: #0d6efd;
-
 }
 
 
@@ -166,50 +154,38 @@
 ===================================================== */
 
 .cta-content {
-
     padding-left: 20px;
-
 }
 
 
 .cta-label {
-
     display: inline-block;
 
     margin-bottom: 12px;
-
     padding: 7px 15px;
 
     border-radius: 30px;
 
     background: #eaf2ff;
-
     color: #0d6efd;
 
     font-size: 14px;
-
     font-weight: 700;
-
 }
 
 
 .cta-content h2 {
-
     margin: 0 0 18px;
 
     color: #1d2735;
 
     font-size: 32px;
-
     line-height: 1.5;
-
     font-weight: 800;
-
 }
 
 
 .cta-content p {
-
     margin: 0;
 
     max-width: 750px;
@@ -217,9 +193,7 @@
     color: #667085;
 
     font-size: 16px;
-
     line-height: 2;
-
 }
 
 
@@ -228,26 +202,21 @@
 ===================================================== */
 
 .cta-buttons {
-
     display: flex;
 
     align-items: center;
-
     gap: 12px;
 
     margin-top: 28px;
 
     flex-wrap: wrap;
-
 }
 
 
 .cta-buttons a {
-
     display: inline-flex;
 
     align-items: center;
-
     justify-content: center;
 
     gap: 9px;
@@ -261,122 +230,118 @@
     text-decoration: none;
 
     font-size: 15px;
-
     font-weight: 700;
 
     transition: .3s ease;
-
 }
 
 
 /* واتساب */
 
 .cta-whatsapp {
-
     background: #25D366;
-
     color: #fff;
 
     box-shadow:
         0 7px 20px rgba(37, 211, 102, .20);
-
 }
 
 
 .cta-whatsapp:hover {
-
     background: #1ebe5d;
-
     color: #fff;
 
     transform: translateY(-3px);
-
 }
 
 
 /* الاتصال */
 
 .cta-phone {
-
     background: #0d6efd;
-
     color: #fff;
 
     box-shadow:
         0 7px 20px rgba(13, 110, 253, .20);
-
 }
 
 
 .cta-phone:hover {
-
     background: #0958c7;
-
     color: #fff;
 
     transform: translateY(-3px);
-
 }
 
 
 /* =====================================================
-   IMAGE
+   ICON
 ===================================================== */
 
-.cta-image {
-
-    position: relative;
-
+.cta-icon-box {
     height: 280px;
 
-    overflow: hidden;
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 18px;
 
     border-radius: 18px;
 
-    box-shadow:
-        0 12px 35px rgba(0, 0, 0, .12);
-
-}
-
-
-.cta-image::after {
-
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
     background: linear-gradient(
         135deg,
-        rgba(13, 110, 253, .08),
-        transparent
+        #eaf2ff,
+        #f7f9fc
     );
 
-    pointer-events: none;
+    border: 1px solid rgba(13, 110, 253, .08);
 
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, .06);
 }
 
 
-.cta-image img {
+.cta-icon-circle {
+    width: 130px;
+    height: 130px;
 
-    width: 100%;
+    display: flex;
 
-    height: 100%;
+    align-items: center;
+    justify-content: center;
 
-    object-fit: cover;
+    border-radius: 50%;
 
-    display: block;
+    background: #0d6efd;
 
-    transition: .5s ease;
+    box-shadow:
+        0 15px 35px rgba(13, 110, 253, .25);
 
+    transition: .3s ease;
 }
 
 
-.cta-image:hover img {
+.cta-icon-circle i {
+    color: #fff;
 
-    transform: scale(1.05);
+    font-size: 65px;
+}
 
+
+.cta-icon-box span {
+    color: #1d2735;
+
+    font-size: 16px;
+    font-weight: 800;
+}
+
+
+.cta-icon-box:hover .cta-icon-circle {
+    transform: translateY(-6px) scale(1.05);
 }
 
 
@@ -387,53 +352,32 @@
 @media (max-width: 991px) {
 
     .call-to-action {
-
         padding: 50px 0;
-
     }
-
 
     .cta-box {
-
         padding: 30px 25px;
-
     }
-
 
     .cta-content {
-
         padding-left: 0;
-
         text-align: center;
-
     }
-
 
     .cta-content h2 {
-
         font-size: 25px;
-
     }
-
 
     .cta-content p {
-
         font-size: 15px;
-
     }
-
 
     .cta-buttons {
-
         justify-content: center;
-
     }
 
-
-    .cta-image {
-
-        height: 240px;
-
+    .cta-icon-box {
+        height: 220px;
     }
 
 }
@@ -442,34 +386,32 @@
 @media (max-width: 575px) {
 
     .cta-box {
-
         padding: 25px 18px;
-
         border-radius: 18px;
-
     }
-
 
     .cta-content h2 {
-
         font-size: 22px;
-
     }
-
 
     .cta-buttons a {
-
         width: 100%;
-
     }
 
+    .cta-icon-box {
+        height: 200px;
+    }
 
-    .cta-image {
+    .cta-icon-circle {
+        width: 105px;
+        height: 105px;
+    }
 
-        height: 210px;
-
+    .cta-icon-circle i {
+        font-size: 52px;
     }
 
 }
 
 </style>
+   

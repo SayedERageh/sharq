@@ -435,31 +435,32 @@
 
         <div class="row align-items-center g-5">
 
-            {{-- الصورة --}}
-            <div class="col-lg-5" data-aos="fade-left">
+          
+{{-- الأيقونة بدل الصورة --}}
+<div class="col-lg-5" data-aos="fade-left">
 
-                <div class="sharek-image-box">
+    <div class="sharek-image-box">
 
-                    <img
-                        src="{{ asset('assets/img/aqar.jpg') }}"
-                        class="sharek-image"
-                        alt="   شرق  استور - إكسسوارات الموبايلات في منية النصر"
-                    >
+        <div class="sharek-icon-placeholder">
+            <i class="bi bi-phone"></i>
+        </div>
 
-                    <div class="sharek-badge">
+        <div class="sharek-badge">
 
-                        <i class="bi bi-phone"></i>
+            <i class="bi bi-phone"></i>
 
-                        <div>
-                            <strong>   شرق  استور</strong>
-                            <span>إكسسوارات الموبايلات</span>
-                        </div>
-
-                    </div>
-
-                </div>
-
+            <div>
+                <strong>شرق استور</strong>
+                <span>إكسسوارات الموبايلات</span>
             </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
 
 
             {{-- المحتوى --}}
@@ -988,6 +989,68 @@
     </div>
 
 </section>
+<style>
+  
+.sharek-icon-placeholder {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 470px;
+    border-radius: 30px;
+    background:
+        radial-gradient(circle at 50% 30%, rgba(13, 110, 253, .18), transparent 35%),
+        linear-gradient(135deg, #f4f8ff, #ffffff);
+    box-shadow: 0 25px 60px rgba(13, 110, 253, .20);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
 
+.sharek-icon-placeholder::before {
+    content: "";
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    border: 2px solid rgba(13, 110, 253, .12);
+    border-radius: 50%;
+}
+
+.sharek-icon-placeholder::after {
+    content: "";
+    position: absolute;
+    width: 360px;
+    height: 360px;
+    border: 1px solid rgba(13, 110, 253, .08);
+    border-radius: 50%;
+}
+
+.sharek-icon-placeholder i {
+    position: relative;
+    z-index: 3;
+    font-size: 170px;
+    color: #0d6efd;
+    filter: drop-shadow(0 15px 25px rgba(13, 110, 253, .25));
+}
+
+/* الموبايل */
+@media (max-width: 991px) {
+    .sharek-icon-placeholder {
+        height: 400px;
+    }
+}
+
+@media (max-width: 575px) {
+    .sharek-icon-placeholder {
+        height: 330px;
+    }
+
+    .sharek-icon-placeholder i {
+        font-size: 120px;
+    }
+}
+    
+
+</style>
 @endsection
  
